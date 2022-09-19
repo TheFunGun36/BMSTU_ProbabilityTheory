@@ -1,0 +1,372 @@
+\documentclass[a4paper, 12pt]{report}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{amssymb,amsfonts,amsmath,mathtext,cite,enumerate,float}
+\usepackage[dvips]{graphicx}
+\usepackage{indentfirst}
+
+\graphicspath{{./img/}}
+
+\usepackage{geometry}
+\geometry{left=2cm}
+\geometry{right=1.5cm}
+\geometry{top=1cm}
+\geometry{bottom=2cm}
+
+\usepackage[T1]{fontenc}
+\usepackage{titlesec, blindtext, color}
+\definecolor{gray75}{gray}{0.75}
+\newcommand{\hsp}{\hspace{20pt}}
+\titleformat{\chapter}[hang]{\Huge\bfseries}{}{0pt}{\Huge\bfseries}
+
+\renewcommand{\theenumi}{\arabic{enumi}}
+\renewcommand{\labelenumi}{\arabic{enumi}}
+\renewcommand{\theenumii}{.\arabic{enumii}}
+\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}.}
+\renewcommand{\theenumiii}{.\arabic{enumiii}}
+\renewcommand{\labelenumiii}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}.}
+
+\begin{document}
+	
+\tableofcontents
+\chapter{Двойной интеграл}	
+	\section{Площадь плоской фигуры.}
+		Пусть $D$ - фигура на плоскости. Что есть площадь? Если $D$ - треугольник, прямоугольник, многоугольник, то площадь вводится естественным образом.
+		\begin{enumerate}
+			\item Рассмотрим множество многоугольником $m$, целиком содержащихся в $D$. $S(m)$ - площадь $m$.
+			\item TODO:
+		\end{enumerate}	
+	
+	\section{Задача, приводящая к понятию двойного интеграла}
+	
+	\section{Свойства двойного интеграла}
+		\subsection{Двойной интеграл единицы}
+			Если $D$ имеет конечную полщадь $S(D)$, то
+			\begin{equation}
+				\iint_{D}1dxdy=S(D)
+			\end{equation}
+		\subsection{Линейность}
+			Если $f$, $g$ интегрируемы в $D$, то функция $f\pm g$, то имеет место:
+			\begin{equation}
+				\iint_{D} ...
+			\end{equation}
+		\subsection{TODO}
+		\subsection{TODO}
+		\subsection{TODO}
+		\subsection{TODO}
+		\subsection{TODO}
+		\subsection{Теорема о среднем значении для двойного интеграла} 
+			Пусть:
+			\begin{enumerate}
+				\item $D$ - линейно-связная, квадрируемая замкнутая область
+				\item $f$ - непрерывна и интегрируема в $D$
+			\end{enumerate}
+		
+			Тогда $\exists$ точка $M_0(x_0, y_0)\in D$ такая, что
+			\begin{equation}
+				f(M_0)=\frac{1}{S(D)}\iint_{D}f(x, y)dxdy
+			\end{equation}
+			
+			Замечание: правую часть формули из свойства 8 называют среднем значением функции $f$ в области $D$
+			
+			Множество $O$ называется связным, если $\forall$ точек $M_1, M_2 \exists$ кривая $S\in O$
+		\subsection{Обобщённая теорема о среднем}
+			Пусть:
+			\begin{enumerate}
+				\item $f$ - непрерывна на $D$
+				\item $g$ - интегрируема на $D$
+				\item $g$ - знакопостоянна на $D$
+				\item $D$ - линейно связная область
+			\end{enumerate}
+			
+			Тогда $\exists M_o\in D$ такая, что
+			\begin{equation}
+				\iint_{D}f(x,y)g(x,y)dxdy=f(M_0)\iint_{D}g(x,y)dxdy
+			\end{equation}
+		\subsection{Вычисление двойного интеграла}
+			Пусть $D$ - область на плоскости $Oxy$. По определению $D$ называется y-правильной, если её можно задать в виде:
+			\begin{equation}
+				\label{eq:vid}
+				D=\{(x, y): a \le x \le b, \phi_2(x)\le y\le\phi_2(x)\}
+			\end{equation}
+			
+			Замечание: область $D$ является y-правильной тогда и только тогда, когда любая прямая параллельная плоскости $Oxy$ пересекает не более чем в двух точках, либо содержит участок границы целиком.
+			
+			Теорема. Пусть:
+			\begin{enumerate}
+				\item $\exists\iint_D f(x, y)dxdy=I$
+				\item $D$ является y-правильной и удовлетворяет формуле \ref{eq:vid}
+				\item $\forall x\in[a,b]\exists F(x)=\int_{\phi_1(x)}^{\phi_2(x)}f(x,y)dy$
+			\end{enumerate}
+			
+			Тогда существует повторный интеграл
+			\begin{equation}
+				I_{repeat}=\int_a^bdx\int_{\phi_1(x)}^{\phi_2(x)}f(x,y)dy=\int_a^bF(x)dx
+			\end{equation}
+			причём $I = I_{repeat}$
+			
+			Замечание:
+			\begin{enumerate}
+				\item Область называется x-правилььной, если её можно задать в виде:
+				\begin{equation}
+					\label{eq:vidx}
+					D=\{(x,y):c\le y\le d,\phi_1(y)\le x\le \phi_2(y)\}
+				\end{equation}
+				
+				\item Пусть
+				\begin{enumerate}
+					\item $\exists\iint_D f(x, y)dxdy=I$
+					\item $D$ является x-правильной и удовлетворяет формуле \ref{eq:vidx}
+					\item $\forall y\in[c,d]\exists F(y)=\int_{\phi_1(y)}^{\phi_2(y)}f(x,y)dx$
+				\end{enumerate}
+			
+				Тогда
+				\begin{equation}
+					\iint_Df(x,y)dxdy=\int_c^ddy\int_{\phi_1(y)}^{\phi_2(y)}f(x,y)dx
+				\end{equation}
+			
+				\item Если область $D$ не является правильной в направлении какой-либо координатной оси, то её можно разбить на правильныйе части и использовать свойство аддитивности двойного интеграла
+			\end{enumerate}
+		
+	\section{Замена переменных в двойном интеграле}
+		Пусть $I=\iint_{D_{xy}}f(x,y)dxdy$. Предположим подобрано преобразование $\Phi:D_{uv}\rightarrowtail D_{xy}$
+	 	\begin{equation}
+	 		\Phi:\begin{cases}
+	 			x=x(u,v) \\
+	 			y=y(u,v)
+	 		\end{cases}
+	 	\end{equation}
+ 	
+ 	 	Теорема о замене переменных в двойном интеграле. Пусть:
+	 	\begin{enumerate}
+			\item $D_{xy}=\Phi(D_{uv})$
+	 		\item $\Phi$ - биекция. 
+	 		\item $\Phi$ - непрерывна и параллельна диаграмме.
+	 		\item Якобиан отображения к $\Phi$:
+	 		\begin{equation}
+	 			J_\Phi=\begin{vmatrix}
+	 				x'_u & x'_v \\
+	 				y'_u & y'_v
+	 			\end{vmatrix}\ne0\text{ в }D_{uv}
+	 		\end{equation}
+	 		\item $f$ интегрируема на $D_{xy}$
+		\end{enumerate}
+	 		
+		Тогда справедливо:
+		\begin{equation}
+			\iint_{D_{xy}}f(x,y)dxdy
+			=\iint_{D_{uv}}
+				f(x(u,v),y(u,v))
+				|J_\Phi(u,v)|
+			dudv
+		\end{equation}
+	
+ 		Замечание:
+ 		\begin{enumerate}
+ 			\item Аналогия с обычным интегралом:
+ 			\begin{equation}
+ 				\int_a^bf(x)dx=
+ 				\begin{vmatrix}
+ 					\text{Замена:} x=\xi(t) \\
+ 					dx=\xi'(t)dt \\
+ 					x=a\Rightarrow t=\xi^{-1}(a) \\
+ 					x=b\Rightarrow t=\xi^{-1}(b)
+ 				\end{vmatrix}
+					=\int_{\xi^{-1}(a)}^{\xi^{-1}(b)}f(\xi(t))\xi'(t)dt
+ 			\end{equation}
+				\item Теорема останется справедливой и в случае, когда свойства 2, 3, 4 нарушаются в отдельных точках области $D$ или на конечном числе кривых площади 0.
+ 		\end{enumerate}
+		
+		Пример. Переход в двойном интеграле к полярным координатам. В прямоугольная декартова система состоит из начала координат и двух взаимно перпендикулярных осей. Положение точки в такой системе задаётся с помощью пары чисел $(x, y)$, геометрическая интерпретация которых такова: первое число $x$ есть проекция точки на ось $X$, второе число $y$ есть проекция точки на ось $Y$.
+			
+		Полярная система координат состоит из начала координат O и луча P. Каждая точка задаётся как пара чисел $(r, \phi)$. $r$ задаёт расстояние на луче P, $\phi$ задаёт угол против часовой стрелки, на который нужно повернуть получившийся радиус-вектор, чтобы достичь точки $M$
+			
+ 		Связь полярной системы координат с декартовой:
+ 		\begin{subequations}
+ 			\begin{align}
+ 				x=\rho \cos(\phi)\\
+ 				y=\rho \sin(\phi)
+ 			\end{align}
+ 		\end{subequations}
+\chapter{Теория вероятностей}
+	\section{Определение вероятности}
+		\subsection{Случайный эксперимент}
+			Случайным называется такой эксперимент, результат которого невозможно точно предсказать.
+			
+			Примеры:
+			\begin{enumerate}
+				\item Бросают монету. Возможные результаты - выпадение орла или решки
+				\begin{equation}
+					\Omega=\{O, P\}
+				\end{equation}
+				
+				\item Бросают шестигранную игральную кость.
+				\begin{equation}
+					\Omega=\{1, 2, 3, 4, 5, 6\}
+				\end{equation}
+			
+				\item Из колоды из 36 карт извлекают две карты
+				\begin{equation}
+					\label{eq:cards}
+					\Omega=\{(x_1, x_2): x_i\text{ - номер карты, которую достали при извлечении}\}
+				\end{equation}
+				В данном случае, число возможных исходов равно $36\cdot 35=1260$. Можно записать уравнение \ref{eq:cards} следующим образом:
+				\begin{equation}
+					\Omega=\{(x_1, x_2): x_i\in {1,...,36}, x_1\ne x_2\}
+				\end{equation}
+			
+				\item Бросают монету, до первого появления решки. 
+				\begin{equation}
+					\Omega=\{1,2,3,...\}, |\Omega|=\aleph_0
+				\end{equation}
+			
+				\item Производят выстрел по плоской мишени. Возможный исход описывается парой $(x_1,x_2)$.
+				\begin{equation}
+					\Omega=\{(x_1, x_2): x_1\in\mathbb{R},x_2\in\mathbb{R}\}
+				\end{equation}
+			\end{enumerate}
+		
+			Множеством всех возможных исходов случайного эксперимента называется множество всех возможных элементарных исходов.
+			
+			Замечание: в этом определении предполагается, что:
+			\begin{enumerate}
+				\item каждый исход из $\Omega$ является делимым и неделимым, то есть не может быть разбит на более мелкие исходы в рамках данного эксперимента
+				\item в результате проведения эксперимента, обязательно имеет место ровно один элементарный исход
+			\end{enumerate}
+		
+			Событие (или, более точно, случайное событие) называется любое подмножество множества $\Omega$ элементарных исходов. Данное определение является нестрогим.
+			
+			Говорят, что в результате эксперимента произошло событие $A$, если наступил один из входящих в $A$ исходов.
+			
+			РИСУНОК
+			
+			Говорят, что событие $A$ является следствием события $B$, если наступление события $B$ всегда влечёт наступление события $A$.
+			
+			РИСУНОК
+			
+			Замечание: любое множество $\Omega$ содержит подмножество $\emptyset$ и $\Omega$. Соответствующее событие считается невозможным $\emptyset$ и достоверным $\Omega$. Эти события называются несобственными, а все остальные -- собственными.
+			
+			Пример: из ящика, содержащего 2 красных и 3 синих шара, извлекают 1 шар.
+			\begin{subequations}
+				\begin{align}
+					A&=\{\text{извлечённый шар красный или синий}\}=\Omega \\
+					B&=\{\text{извлечённый шар белый}\}=\emptyset
+				\end{align}
+			\end{subequations}
+		
+			Событие (или случайное событие) - множество, являющееся подмножеством $\Omega$.
+			
+			Суммой событий $A$ и $B$ определено как:
+			\begin{equation}
+				A+B=A\cup B
+			\end{equation}
+			РИСУНОК
+		
+			Произведение событий $A$ и $B$ определяется так:
+			\begin{equation}
+				AB=A\cdot B=A\cap B
+			\end{equation}
+			РИСУНОК
+			
+			Событие, противоположное $A$ определено как:
+			\begin{equation}
+				\bar{A}=\Omega\setminus A
+			\end{equation}
+		
+	\section{Свойства операций над событиями(основные)}
+		\begin{enumerate}
+			\item $A+B=B+A$
+			\item $AB=BA$
+			\item $(A+B)+C=A+(B+C)$
+			\item $(AB)C=A(BC)$
+			\item $A(B+C)=AB+AC$
+			\item $A+BC=(A+B)(A+C)$
+			\item $\bar{\bar{A}}=A$
+			\item $A+A=A$
+			\item $AA=A$
+			\item $\bar{A+B}=\bar{A}\bar{B}$
+			\item $\bar{AB}=\bar{A}+\bar{B}$
+			\item $A\subseteq B\Leftrightarrow A+B=B$
+			\item $A\subseteq B\Leftrightarrow AB=A$
+			\item $A\subseteq B\Leftrightarrow \bar{A}\supseteq\bar{B}$
+		\end{enumerate}
+		
+		Определения:
+		\begin{enumerate}
+			\item События $A$ и $B$ являются несовместными, если $A\cdot B=\emptyset$.
+			\item События $A_1,...,A_n$ называются попарно несовместными, если любые два из них - несовместные.
+			\item События $A_1,...,A_n$ называются несовместными в совокупности, если $A_1\cdot...\cdot A_n=\emptyset$
+		\end{enumerate}
+		
+		Очевидно, что если $A_1,...,A_n$ - попарно несовместны, то они несовместны в совокупности.
+		
+	\section{Классическое определение вероятности}
+		Пусть $|\Omega|=N<\infty$, $A\subseteq\Omega; |A|=N_A$ и по условиям эксперимента нет объективных оснований предпочесть тот или иной исход остальным (все исходы равновозможны). Тогда вероятностью осуществления события $A$ называется число:
+		\begin{equation}
+			P\{A\}=\frac{N_A}{N}
+		\end{equation}
+	
+		Пример: два раза бросают шестигранную игральную кость. Событие $A=\{\text{сумма выпавших очком больше или равна 11}\}$. $P\{A\}=?$
+		
+		Решение: исходом будем считать пару $(x_1,x_2)$, где $x_i=\{1,2,3,4,5,6\}$ -- число, выпавшее на кости. $\Omega=\{(x_1,x_2): x_i=\{1,2,3,4,5,6\}\}; |\Omega|=N=36$.
+		
+		$|A|=?$; $A=\{(5, 6), (6, 5), (6, 6)\}\Rightarrow|A|=3$. Считаем все исходы из $\Omega$ равновозможными. Используя классическое определение вероятности, получим, что:
+		\begin{equation}
+			P\{A\}=\frac{N_A}{N}=\frac{3}{36}=\frac{1}{12}
+		\end{equation}
+	
+		\subsection{Свойства вероятности}
+			\begin{enumerate}
+				\item $P\{A\}\ge0$
+				\item $P\{\Omega\}=1$
+				\item Если $A, B$ - несовместные, то
+				\begin{equation}
+					P\{A+B\}=P\{A\}+P\{B\}
+				\end{equation}
+			\end{enumerate}
+		
+			Доказательство:
+			\begin{enumerate}
+				\item $P\{A\}=\frac{N_A}{N}\ge0$, что следует из $N_A\ge0, N\ge0$
+				\item $P\{\Omega\}=\frac{N_\Omega}{N}=\{N(\Omega)=|\Omega|=N\}=\frac{N}{N}=1$
+				\item $P\{A+B\}=\frac{N_{A+B}}{N} \\
+				=\{N_{A+B}=|A+B|=|A|+|B|-|AB|=N_A+N_B\} \\
+				=\frac{N_A+N_B}{N}=\frac{N_A}{N}+\frac{N_B}{N}=P\{A\}+P\{B\}$
+			\end{enumerate}
+
+	\section{Геометрическое определение вероятности}
+		Геометрическое определение вероятности является обобщением классического на случай бесконечных элементарных исходов. Пусть выполнены следующие условия:
+		\begin{enumerate}
+			\item $\Omega\subseteq\mathbb{R}^n$
+			\item $\mu(\Omega)<\infty$ - некая мера. 
+				\subitem $\mu=1$ - длина
+				\subitem $\mu=2$ - площадь
+				\subitem $\mu=3$ - объём
+				\subitem \dots
+			\item возможность принадлежности исхода к тому или иному подмножеству $\Omega$ не зависит от формы события и его расположения внутри $\Omega$
+		\end{enumerate}
+	
+		Тогда вероятность осуществления возможности события $A$ называется число $P\{A\} = \frac{\mu(N_A)}{\mu(N)}$
+		
+		Пример: задача о встрече. Два человека договорились встретиться в условленном месте с 12:00 до 13:00. При этом, пришедший ждёт другого человека в течение 15 минут, а потом уходит. Какова вероятность того, что они встретятся, если появление каждого из них равновероятно в любое время в период с 12:00 до 13:00?
+		
+		Исход: $(x_1,x_2)$, где $x_i\in[0, 1]$; - время (в часах после 12:00) появления i-гоо человека в условленном месте. Тогда $\Omega=[0,1]\times[0,1]$.
+		
+		РИСУНОК
+		
+		\begin{equation}
+			A=\{(x_1, x_2): |x_1-x_2|\le \frac{1}{4}\}
+		\end{equation}
+	
+		РИСУНОК
+		
+		Используя геометрические определение, получаем:
+		\begin{equation}
+			P\{A\}
+			=\frac{\mu(A)}{\mu(\Omega)}
+			=\frac{\mu(\Omega)-2\cdot\mu(K)}{\mu(\Omega)}
+			=\frac{1-2\cdot\frac{1\cdot3\cdot3}{2\cdot4\cdot4}}{\Omega}
+		\end{equation}
+		
+\end{document}
